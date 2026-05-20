@@ -1,54 +1,22 @@
 # Hybrid-Transformer-GAN-Architectures-for-Real-Time-Edge-Level-Cyber-Anomaly-Detection
 Baseline hybrid model for anamoly detection
 
-╔══════════════════════════════════════════════════════════════════╗
-║  SETUP GUIDE — Baseline Transformer-GAN (Teacher Model)        ║
-║  Path: C:\Users\adith\Downloads\Design Project - Baseline      ║
-╚══════════════════════════════════════════════════════════════════╝
+# Baseline Transformer-GAN for Cyber Anomaly Detection
 
-Follow these steps to establish the high-performance Teacher baseline.
+This repository contains the baseline implementation of a Hybrid Transformer-GAN architecture designed for detecting anomalies in IoT network traffic (MQTT). This model acts as the "Teacher" in a Knowledge Distillation pipeline.
 
-═══════════════════════════════════════════════════════════════════
-STEP 1: ANACONDA ENVIRONMENT SETUP
-═══════════════════════════════════════════════════════════════════
+## 🚀 Overview
+The model utilizes a **Transformer-Encoder** as a Generator to learn the latent distribution of normal network packets. It identifies anomalies by calculating the reconstruction error; packets that cannot be accurately reconstructed are flagged as potential threats.
 
-1. Open Anaconda Prompt.
-2. Create the baseline environment:
-    conda create -n baseline_gan python=3.10 -y
+## 🛠️ Architecture
+- **Generator:** 4-6 Layer Transformer Encoder with Multi-Head Self-Attention.
+- **Discriminator:** Multi-layer Perceptron (MLP) with Leaky ReLU activations.
+- **Detection Logic:** Reconstruction Error Thresholding.
 
-3. Activate the environment:
-    conda activate baseline_gan
-
-4. Install dependencies:
-    pip install torch pandas scikit-learn numpy
-
-═══════════════════════════════════════════════════════════════════
-STEP 2: DIRECTORY VERIFICATION
-═══════════════════════════════════════════════════════════════════
-
-Ensure your folder structure matches exactly:
-C:\Users\adith\Downloads\Design Project - Baseline\
-    ├── data/
-    │   ├── mqttdataset_reduced.csv
-    │   └── test30_reduced.csv
-    ├── data_loader.py
-    ├── models.py
-    ├── train_baseline.py
-    └── demo_baseline.py
-
-═══════════════════════════════════════════════════════════════════
-STEP 3: RUNNING THE BASELINE
-═══════════════════════════════════════════════════════════════════
-
-1. Navigate to the folder:
-    cd "C:\Users\adith\Downloads\Design Project - Baseline"
-
-2. Start training the Teacher model:
-    python train_baseline.py
-
-3. Run the evaluation demo:
-    python demo_baseline.py
-
-NOTE: This will generate 'teacher_baseline.pt'. You MUST copy this 
-file to your Optimized folder once training is complete.
-═══════════════════════════════════════════════════════════════════
+## 📦 Setup & Installation
+1. **Environment:**
+   ```bash
+   conda create -n baseline_gan python=3.10
+   conda activate baseline_gan
+   pip install torch pandas scikit-learn numpy
+---
